@@ -87,7 +87,7 @@
             text-align: center;
             position: relative;
             flex-direction: column;
-            padding-top: 80px; /* Added spacing for nav */
+            padding-top: 80px;
         }
 
         .terminal-window {
@@ -117,7 +117,6 @@
         .cmd-line { color: var(--accent); margin-bottom: 5px; }
         .output { color: var(--text-secondary); margin-bottom: 15px; display: block; }
 
-        /* --- Profile Picture Styling --- */
         .profile-container {
             position: relative;
             margin-bottom: 20px;
@@ -337,6 +336,71 @@
         .project-links a { text-decoration: none; color: #fff; font-size: 0.9rem; transition: 0.3s; }
         .project-links a:hover { color: var(--accent); }
 
+        /* --- FOOTER / CONTACT SECTION --- */
+        .contact-section {
+            padding: 100px 0;
+            border-top: 1px solid var(--glass-border);
+            background: linear-gradient(180deg, var(--bg-color) 0%, rgba(14, 165, 233, 0.05) 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: var(--glass-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            text-decoration: none;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .contact-title {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-sub {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-card:hover .contact-icon { color: #25D366; }
+        .linkedin-card:hover .contact-icon { color: #0077b5; }
+        .email-card:hover .contact-icon { color: #EA4335; }
+        .github-card:hover .contact-icon { color: #fff; }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
         /* Mobile Fixes */
         @media (max-width: 768px) {
             h1 { font-size: 3rem; }
@@ -387,8 +451,8 @@
             <div class="subtitle" data-aos="fade-up" data-aos-delay="300">Tech Explorer | Solutions Engineer</div>
             
             <div class="btn-group" data-aos="fade-up" data-aos-delay="400">
-                <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Solutions</a>
-                <a href="#experience" class="btn btn-secondary"><i class="fas fa-history"></i> My Journey</a>
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                <a href="#projects" class="btn btn-secondary"><i class="fas fa-code"></i> View Work</a>
             </div>
         </header>
     </div>
@@ -416,7 +480,6 @@
         <section id="experience" class="timeline-section">
             <div class="section-title"><span>Career Roadmap</span></div>
             <div class="timeline">
-
                 <div class="timeline-card left" data-aos="fade-right">
                     <div class="timeline-badge"></div>
                     <div class="content-box">
@@ -428,7 +491,6 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="timeline-card right" data-aos="fade-left">
                     <div class="timeline-badge"></div>
                     <div class="content-box">
@@ -440,7 +502,6 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="timeline-card left" data-aos="fade-right">
                     <div class="timeline-badge"></div>
                     <div class="content-box">
@@ -452,22 +513,36 @@
                         </p>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="projects" style="padding-bottom: 100px;">
+        <section id="projects" style="padding-bottom: 50px;">
             <div class="section-title"><span>Engineered Solutions</span></div>
             <div class="project-grid">
 
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-content">
-                        <h3><i class="fas fa-robot" style="color:var(--accent)"></i> Automated Scraper</h3>
-                        <p>A Python-based automation tool that scrapes high-volume image data for datasets and uploads directly to Google Drive.</p>
+                        <h3><i class="fas fa-gem" style="color:var(--accent)"></i> PSX Gem Finder</h3>
+                        <p>Financial analysis tool that uses AI to parse complex stock company reports. Generates visual summaries and "Gem" entry signals (Bull/Bear) based on sentiment analysis.</p>
                         <div class="tech-tags">
+                            <span class="tag">AI Analysis</span>
                             <span class="tag">Python</span>
+                            <span class="tag">FinTech</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/mrnisarali110" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="project-content">
+                        <h3><i class="fas fa-cloud-upload-alt" style="color:var(--accent)"></i> Automated Data Pipeline</h3>
+                        <p>Automated workflow that watches a Drive folder, filters raw data, cross-references online sources for enrichment, and generates a consolidated master summary.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Google Colab</span>
+                            <span class="tag">Drive API</span>
                             <span class="tag">Automation</span>
-                            <span class="tag">Google API</span>
                         </div>
                     </div>
                     <div class="project-links">
@@ -477,27 +552,12 @@
 
                 <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-content">
-                        <h3><i class="fas fa-utensils" style="color:var(--accent)"></i> Cafe Klay UI</h3>
-                        <p>Complete dine-in ordering prototype for a premium restaurant. Designed in Figma to streamline customer user flow.</p>
+                        <h3><i class="fas fa-wallet" style="color:var(--accent)"></i> AI Smart Ledger</h3>
+                        <p>Personal finance tracker built with AI-assisted "Vibe Coding." Features fast expense entry via natural language and visual analytics charts.</p>
                         <div class="tech-tags">
-                            <span class="tag">Figma</span>
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">Product Design</span>
-                        </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="#">View Prototype <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-content">
-                        <h3><i class="fas fa-microchip" style="color:var(--accent)"></i> Kinetic Wearable</h3>
-                        <p>An IoT project controlling servo motors via Arduino for kinetic fashion elements. Solved mechanical stability challenges.</p>
-                        <div class="tech-tags">
-                            <span class="tag">C++</span>
-                            <span class="tag">Arduino</span>
-                            <span class="tag">Hardware</span>
+                            <span class="tag">AI-Assisted</span>
+                            <span class="tag">Chart.js</span>
+                            <span class="tag">Web App</span>
                         </div>
                     </div>
                     <div class="project-links">
@@ -505,14 +565,134 @@
                     </div>
                 </div>
 
-            </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="project-content">
+                        <h3><i class="fas fa-truck-fast" style="color:var(--accent)"></i> ELMS (FYP)</h3>
+                        <p>Ecommerce Logistics Management System. A MERN stack platform integrating courier APIs for automated dispatch, order tracking, and an AI support chatbot.</p>
+                        <div class="tech-tags">
+                            <span class="tag">MERN Stack</span>
+                            <span class="tag">Courier APIs</span>
+                            <span class="tag">Chatbot</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/mrnisarali110" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
 
-            <div style="text-align: center; margin-top: 50px;" data-aos="fade-up">
-                <a href="https://github.com/mrnisarali110" target="_blank" class="btn btn-secondary" style="display: inline-flex;">
-                    <i class="fab fa-github"></i> See More on GitHub
-                </a>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-content">
+                        <h3><i class="fas fa-chart-line" style="color:var(--accent)"></i> AI Crypto Signal</h3>
+                        <p>Hybrid prediction model combining math-based indicators and AI algorithms to analyze crypto market trends and generate buy/sell signals.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Predictive AI</span>
+                            <span class="tag">Math Models</span>
+                            <span class="tag">Crypto</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/mrnisarali110" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="project-content">
+                        <h3><i class="fab fa-whatsapp" style="color:var(--accent)"></i> n8n Order Bot</h3>
+                        <p>Automated order intake workflow. Captures WhatsApp messages via n8n, processes the order details, and syncs them instantly to Google Drive/Sheets.</p>
+                        <div class="tech-tags">
+                            <span class="tag">n8n</span>
+                            <span class="tag">WhatsApp API</span>
+                            <span class="tag">No-Code</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/mrnisarali110" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-content">
+                        <h3><i class="fas fa-headset" style="color:var(--accent)"></i> Omni-Channel AI</h3>
+                        <p>Intelligent customer support bot deployed across both Website and WhatsApp. Uses AI to understand context and resolve user queries autonomously.</p>
+                        <div class="tech-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Chatbot</span>
+                            <span class="tag">Integration</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/mrnisarali110" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="project-content">
+                        <h3><i class="fas fa-robot" style="color:var(--accent)"></i> Image Dataset Scraper</h3>
+                        <p>High-volume image scraper built with Python. Automates the collection and cleaning of image data for machine learning datasets.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Data Mining</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/mrnisarali110" target="_blank">View Code <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-content">
+                        <h3><i class="fas fa-utensils" style="color:var(--accent)"></i> Cafe Klay UI</h3>
+                        <p>Complete dine-in ordering prototype for a premium restaurant. Designed in Figma to streamline customer user flow.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">UI/UX</span>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">View Prototype <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
             </div>
         </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up"><span>Let's Build Together</span></div>
+                
+                <div class="contact-grid">
+                    
+                    <a href="https://github.com/mrnisarali110" target="_blank" class="contact-card github-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fab fa-github contact-icon"></i>
+                        <div class="contact-title">Explore My Code</div>
+                        <div class="contact-sub">Check repositories & contributions</div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/nisarali110/" target="_blank" class="contact-card linkedin-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fab fa-linkedin contact-icon"></i>
+                        <div class="contact-title">Connect Professionally</div>
+                        <div class="contact-sub">Read my articles & posts</div>
+                    </a>
+
+                    <a href="mailto:mrnisarali110@gmail.com" class="contact-card email-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-paper-plane contact-icon"></i>
+                        <div class="contact-title">Hire Me / Email</div>
+                        <div class="contact-sub">mrnisarali110@gmail.com</div>
+                    </a>
+
+                    <a href="https://wa.me/923102180779" target="_blank" class="contact-card whatsapp-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fab fa-whatsapp contact-icon"></i>
+                        <div class="contact-title">Direct Chat</div>
+                        <div class="contact-sub">+92 310 2180779</div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Nisar Ali. Engineered with AI & Coffee.</p>
+        </footer>
 
     </div>
 
