@@ -22,6 +22,18 @@
             --terminal-bg: #1e1e1e;
         }
 
+        /* Light theme overrides */
+        body.light {
+            --bg-color: #f8fafc;
+            --glass-bg: rgba(255,255,255,0.8);
+            --glass-border: rgba(2,6,23,0.06);
+            --accent: #0ea5e9;
+            --accent-glow: rgba(14,165,233,0.15);
+            --text-primary: #0b1220;
+            --text-secondary: #475569;
+            --terminal-bg: #eef2f7;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -140,6 +152,29 @@
         }
         .social-links a:hover { color: var(--accent); transform: scale(1.1); }
 
+        /* Theme toggle button */
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.02);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+            margin-left: 16px;
+            font-size: 0.95rem;
+        }
+        body.light .theme-toggle {
+            border: 1px solid rgba(2,6,23,0.06);
+            background: rgba(0,0,0,0.03);
+            color: var(--text-secondary);
+        }
+        .theme-toggle:hover { transform: translateY(-3px); color: var(--accent); box-shadow: 0 6px 18px var(--accent-glow); }
+
         /* --- Hero Section --- */
         header {
             min-height: 100vh;
@@ -224,7 +259,7 @@
         .marquee-section {
             width: 100%;
             overflow: hidden;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.03);
             padding: 40px 0;
             margin: 80px 0;
             border-top: 1px solid var(--glass-border);
@@ -469,8 +504,34 @@
             .right .timeline-badge { left: 21px; }
             .marquee-track { gap: 30px; }
             .profile-img { width: 120px; height: 120px; }
+
+            /* make toggle sit nicely on small screens */
+            .theme-toggle { width: 36px; height: 36px; font-size: 0.85rem; margin-left: 10px; }
         }
     </style>
+
+    <script>
+        // Immediately apply the user's theme preference to avoid flash.
+        (function() {
+            try {
+                const stored = localStorage.getItem('theme');
+                if (stored === 'light') {
+                    document.documentElement.classList.add('light');
+                    document.body.classList.add('light'); // in case scripts run after body is created
+                } else if (stored === 'dark') {
+                    // explicit dark - do nothing (default)
+                } else {
+                    // No stored preference, follow OS preference
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                        document.documentElement.classList.add('light');
+                        document.body.classList.add('light');
+                    }
+                }
+            } catch (e) {
+                // ignore storage errors
+            }
+        })();
+    </script>
 </head>
 <body>
 
@@ -488,11 +549,21 @@
 
     <div class="container">
         <nav>
-            <div class="logo">&lt;Nisar_Ali /&gt;</div>
-            <div class="social-links">
-                <a href="https://github.com/mrnisarali110" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/nisarali110/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:mrnisarali110@gmail.com"><i class="fas fa-envelope"></i></a>
+            <div style="display:flex; align-items:center; gap:16px;">
+                <div class="logo">&lt;Nisar_Ali /&gt;</div>
+            </div>
+
+            <div style="display:flex; align-items:center;">
+                <!-- Theme toggle button -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme" aria-pressed="false">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+
+                <div class="social-links" style="display:inline-flex; align-items:center;">
+                    <a href="https://github.com/mrnisarali110" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nisarali110/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:mrnisarali110@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </nav>
 
@@ -819,6 +890,63 @@
         // Start the sequence
         setTimeout(addLine, 100);
 
+        // THEME TOGGLER
+        (function() {
+            const toggle = document.getElementById('theme-toggle');
+            const icon = document.getElementById('theme-icon');
+
+            function isLight() {
+                return document.documentElement.classList.contains('light') || document.body.classList.contains('light');
+            }
+
+            function applyTheme(theme) {
+                if (theme === 'light') {
+                    document.documentElement.classList.add('light');
+                    document.body.classList.add('light');
+                    icon.className = 'fas fa-sun';
+                    toggle.setAttribute('aria-pressed', 'true');
+                } else {
+                    document.documentElement.classList.remove('light');
+                    document.body.classList.remove('light');
+                    icon.className = 'fas fa-moon';
+                    toggle.setAttribute('aria-pressed', 'false');
+                }
+            }
+
+            // Initialize button state based on current theme or stored preference
+            try {
+                const stored = localStorage.getItem('theme');
+                if (stored) {
+                    applyTheme(stored);
+                } else {
+                    // if no stored preference, reflect OS preference
+                    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+                    applyTheme(prefersLight ? 'light' : 'dark');
+                }
+            } catch (e) {
+                // fallback without storage
+                const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+                applyTheme(prefersLight ? 'light' : 'dark');
+            }
+
+            toggle.addEventListener('click', () => {
+                const next = isLight() ? 'dark' : 'light';
+                applyTheme(next);
+                try { localStorage.setItem('theme', next); } catch (e) {}
+            });
+
+            // Optional: react to system theme changes if user hasn't explicitly set a preference
+            try {
+                const mql = window.matchMedia('(prefers-color-scheme: light)');
+                mql.addEventListener && mql.addEventListener('change', (e) => {
+                    try {
+                        if (!localStorage.getItem('theme')) {
+                            applyTheme(e.matches ? 'light' : 'dark');
+                        }
+                    } catch (err) {}
+                });
+            } catch (err) {}
+        })();
     </script>
 </body>
 </html>
