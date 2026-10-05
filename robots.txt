@@ -1,3 +1,28 @@
+# Robots file for Nisar Ali's portfolio.
+# NOTE: crawlers only read robots.txt at the ROOT of a domain.
+# It takes effect once the site is on a custom domain (or the mrnisarali110.github.io user-site repo).
+# Until then it is harmless: with no root robots.txt, everything is already crawlable.
+
 User-agent: *
 Allow: /
+
+# AI assistants and AI search: explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://mrnisarali110.github.io/Portfolio-Resume/sitemap.xml

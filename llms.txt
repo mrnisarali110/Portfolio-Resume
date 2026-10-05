@@ -1,0 +1,50 @@
+# Nisar Ali
+
+> Nisar Ali is a Technical Project Manager and Solutions Engineer based in Karachi, Pakistan. He currently works at Conxept Innovations (since May 2026), coordinating delivery of web development, SEO, paid media, compliance-sensitive content and marketing automation for 14+ US healthcare clients, mainly psychiatry and TMS therapy clinics.
+
+Nisar combines project management with hands-on technical skills. He leads distributed design, development, content and PPC teams on US Eastern hours, and builds GoHighLevel CRM and automation workflows, n8n and Python automations, WordPress sites and React / Node.js applications.
+
+## Profile
+
+- Full name: Nisar Ali
+- Current role: Technical Project Manager, Conxept Innovations (May 2026 to present)
+- Location: Karachi, Pakistan (works US Eastern business hours)
+- Education: BS Computer Science, IQRA University (2021 to 2024)
+- Contact: mrnisarali110@gmail.com
+
+## Experience
+
+- Technical Project Manager, Conxept Innovations (May 2026 to present): delivery coordination across 14+ US healthcare client accounts covering SEO, paid media, web development and compliance-sensitive content; GoHighLevel CRM and automation builds; rollout of an internal task-tracking board system.
+- Technical Project Manager, Tech Minds Venture (June 2025 to April 2026): bridge between clients and developers; managed web and design projects through delivery.
+- Project Manager, Marcos Technology (October 2024 to May 2025): managed international projects from initiation to delivery, including requirements breakdown and delivery tracking.
+
+## Skills
+
+- Project management: Agile / Scrum, requirements breakdown, client coordination, delivery tracking, monday.com, ClickUp
+- Automation and CRM: GoHighLevel, n8n, Google Apps Script, REST APIs, webhooks
+- Development: Python, JavaScript, React.js, Node.js, MongoDB, WordPress, Shopify
+- Digital marketing: SEO, paid media coordination, healthcare marketing compliance
+
+## Certifications
+
+- Work Management Core Certified, monday.com Academy (2026)
+- Business Analysis Basics, Simplilearn (January 2026)
+- n8n: No Code AI Agent Builder, Simplilearn (January 2026)
+- Postman API Fundamentals Student Expert, Postman (January 2026)
+- Agile Scrum Master Basics, Simplilearn (October 2025)
+- Intro to Project Management with ClickUp, Coursera (July 2025)
+- Fundamentals of MERN Stack, Simplilearn (June 2025)
+
+## Selected projects
+
+- Smart Gmail Categorizer: n8n workflow that reads incoming email and routes it to labels by context.
+- PSX Gem Finder: Python tool that parses Pakistan Stock Exchange financial reports and produces AI-assisted summaries and signals.
+- Automated Data Pipeline: Python pipeline that pulls files from Google Drive, cross-references datasets and outputs structured results without manual work.
+- Money Manager App: React / Node.js expense tracker where users log transactions through AI prompts.
+- Client Web Solution: responsive Shopify business site covering design, integrations and deployment.
+
+## Links
+
+- [Portfolio](https://mrnisarali110.github.io/Portfolio-Resume/): main site with experience, projects and certifications
+- [LinkedIn](https://www.linkedin.com/in/nisarali110/): professional profile
+- [GitHub](https://github.com/mrnisarali110): code and repositories
